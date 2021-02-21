@@ -1,7 +1,4 @@
-# TD Excercie
-
-## Overview
-
+# TD Exercise
 
 ## Assumptions
 * Prices are positive real numbers.
