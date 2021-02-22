@@ -50,13 +50,17 @@ class MyBlenderTest {
     }
 
     @Test
-    void arbitragePrice() {
+    void priceCross() {
         pb.updatePrice(5, 15., MarketSource.SOURCE_A);
         Assertions.assertEquals(10., pb.getBestMid(), TOL);
         pb.updatePrice(8., 10., MarketSource.SOURCE_B);
         Assertions.assertEquals(9., pb.getBestMid(), TOL);
         pb.updatePrice(11., 10., MarketSource.SOURCE_B);
         Assertions.assertEquals(9., pb.getBestMid(), TOL);
+
+        pb.updatePrice(9., 10., MarketSource.SOURCE_B);
+        pb.updatePrice(11., 12., MarketSource.SOURCE_C);
+        Assertions.assertEquals(10.5, pb.getBestMid(), TOL);
     }
 
     @Test
@@ -88,6 +92,7 @@ class MyBlenderTest {
         t3.run();
         Assertions.assertEquals(9.5, pb.getBestMid());
     }
+
 
     private static long bytesToMegabytes(long bytes) {
         return bytes / MEGABYTE;
