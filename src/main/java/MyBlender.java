@@ -4,8 +4,8 @@ import java.util.Map;
 
 public class MyBlender implements PriceBlender {
 
-    Map<MarketSource, Double> sourceBids = new HashMap<>();
-    Map<MarketSource, Double> sourceAsks = new HashMap<>();
+    private final Map<MarketSource, Double> sourceBids = new HashMap<>();
+    private final Map<MarketSource, Double> sourceAsks = new HashMap<>();
     private volatile double bestBid;
     private volatile double bestAsk;
     private volatile double bestMid;
