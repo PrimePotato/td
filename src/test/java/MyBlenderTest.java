@@ -20,7 +20,7 @@ class MyBlenderTest {
         pb.updatePrice(0., 10., MarketSource.SOURCE_A);
         pb.updatePrice(10., 0., MarketSource.SOURCE_B);
         pb.updatePrice(5., 11., MarketSource.SOURCE_C);
-        Assertions.assertEquals(pb.getBestBid(), 5., TOL);
+        Assertions.assertEquals(5. ,pb.getBestBid(), TOL);
     }
 
     @Test
@@ -28,7 +28,7 @@ class MyBlenderTest {
         pb.updatePrice(0., 10., MarketSource.SOURCE_A);
         pb.updatePrice(10., 0., MarketSource.SOURCE_B);
         pb.updatePrice(5., 11., MarketSource.SOURCE_C);
-        Assertions.assertEquals(pb.getBestAsk(), 10., TOL);
+        Assertions.assertEquals(10., pb.getBestAsk(), TOL);
     }
 
     @Test
@@ -36,7 +36,7 @@ class MyBlenderTest {
         pb.updatePrice(0., 10., MarketSource.SOURCE_A);
         pb.updatePrice(10., 0., MarketSource.SOURCE_B);
         pb.updatePrice(5., 11., MarketSource.SOURCE_C);
-        Assertions.assertEquals(pb.getBestMid(), 7.5, TOL);
+        Assertions.assertEquals(7.5, pb.getBestMid(), TOL);
     }
 
     @Test
@@ -47,6 +47,12 @@ class MyBlenderTest {
         Assertions.assertEquals(0., pb.getBestMid(), TOL);
         pb.updatePrice(9., 0, MarketSource.SOURCE_A);
         Assertions.assertEquals(0, pb.getBestMid(), TOL);
+    }
+
+    @Test
+    void updatePrice() {
+        pb.updatePrice(5, 15., MarketSource.SOURCE_A);
+        Assertions.assertEquals(10., pb.getBestMid(), TOL);
     }
 
     @Test
