@@ -6,13 +6,13 @@ import java.util.stream.IntStream;
 
 class MyBlenderTest {
 
-    private final PriceBlender pb = new MyBlender();
+    private PriceBlender pb;
     private final double TOL = 1e-16;
     private static final long MEGABYTE = 1024L * 1024L;
 
     @BeforeEach
     void setUp() {
-        PriceBlender pb = new MyBlender();
+        pb = new MyBlender();
     }
 
     @Test
